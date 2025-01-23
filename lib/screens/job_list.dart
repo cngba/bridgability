@@ -7,30 +7,33 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 class Job {
-  final String id;
+  // final String id;
   final String name;
   final String description;
   final String requirement;
   final String openingDate;
   final String closingDate;
+  final String finalScore;
 
   Job({
-    required this.id,
+    // required this.id,
     required this.name,
     required this.description,
     required this.requirement,
     required this.openingDate,
     required this.closingDate,
+    required this.finalScore,
   });
 
   factory Job.fromJson(Map<String, dynamic> json) {
     return Job(
-      id: json['_id'],
-      name: json['name'],
-      description: json['description'],
-      requirement: json['requirement'],
+      // id: json['_id'],
+      name: json['job_name'],
+      description: json['job_description'],
+      requirement: json['academic_requirements'],
       openingDate: json['opening_date'],
       closingDate: json['closing_date'],
+      finalScore: json['final_score']?.toString() ?? '',
     );
   }
 }
@@ -55,20 +58,20 @@ class JobListScreenState extends State<JobListScreen> {
     final token = await getToken();
     print('Token:  $token');
     
-    final url = Uri.parse('http://192.168.1.16:3000/jobs'); // Replace with your API endpoint
-    final response = await http.get(
+    final url = Uri.parse('http://192.168.189.60:3000/jobs/match'); // Replace with your API endpoint
+    final response = await http.post(
       url,
       headers: {
         'Authorization': 'Bearer $token'
       }, // Replace with your JWT token
     );
 
-    print('Response body: ${response.body}');
-    print('Response status: ${response.statusCode}');
-    print('Response headers: ${response.headers}');
     if (response.statusCode == 200) {
-      List<dynamic> data = jsonDecode(response.body)['jobs'];
-      return data.map((job) => Job.fromJson(job)).toList();
+      var jsonData = jsonDecode(response.body);
+      print(jsonData);
+      List<dynamic> data = jsonData['jobs'];
+      print(data);
+      return data.where((job) => job != null).map((job) => Job.fromJson(job)).toList();
     } else {
       throw Exception('Failed to load jobs');
     }
@@ -105,6 +108,7 @@ class JobListScreenState extends State<JobListScreen> {
                   child: ListTile(
                     title: Text(job.name),
                     subtitle: Text(job.description),
+                    trailing: Text(job.finalScore),
                     onTap: () {
                       Navigator.push(
                         context,

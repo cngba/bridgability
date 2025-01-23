@@ -50,7 +50,7 @@ class HomeScreenState extends State<HomeScreen> {
     if (token != null && token.isNotEmpty) {
       print('User is signed in with token: $token');
       // If token exists, navigate to the dashboard
-      Future.delayed(Duration.zero, () {
+      Future.delayed(Duration .zero, () {
         if (mounted) {
           Navigator.pushReplacement(
             context,

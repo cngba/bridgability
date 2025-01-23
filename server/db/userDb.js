@@ -1,3 +1,5 @@
+const { ObjectId } = require('mongodb');
+
 async function getUsersCollection(client) {
   const database = client.db("bridgability");
   return database.collection("users");
@@ -23,16 +25,30 @@ async function getUser(client, { email }) {
   const usersCollection = await getUsersCollection(client);
 
   // Find the user by email
-  const existingUser = await usersCollection.findOne({ email });
+  const existingUser = await usersCollection.findOne({ email: email });
   if (!existingUser) {
     return { error: 'User not found.' };
   }
+  return existingUser;
+}
 
+async function getUserById(client, { id }) {
+  const usersCollection = await getUsersCollection(client);
+
+  const objectId = new ObjectId(id);
+
+  console.log(id);
+  // Find the user by id
+  const existingUser = await usersCollection.findOne({ _id: objectId });
+  if (!existingUser) {
+    return { error: 'User not found.' };
+  }
   return existingUser;
 }
 
 module.exports = {
   addUser,
-  getUser
+  getUser,
+  getUserById,
   // getAllUsers,
 };

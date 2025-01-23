@@ -1,0 +1,272 @@
+﻿bio,job_description,label
+machine learning,machine learning engineer,1
+high school graduate,data entry,0
+machine learning,graphic design,0
+machine learning,data entry,0
+graphic design,graphic design,1
+software engineering,software engineer,1
+competitive programming,software engineer,1
+software development,devops,1
+machine learning,software,0
+software development,data entry,0
+data entry,graphic design,0
+data entry,software engineer,0
+data entry,graphic designer,0
+machine learning,software tester,0
+machine learning,devops,0
+data entry,devops,0
+machine learning,artificial intelligence,1
+data entry,artificial intelligence,0
+visual design,artificial intelligence,0
+artificial intelligence,data entry,0
+artificial intelligence,artificial intelligence,1
+artificial intelligence,machine learning,1
+artificial intelligence,devops,0
+artificial intelligence,software tester,0
+artificial intelligence,graphic design,0
+artificial intelligence,software engineer,0
+accountant,data entry,0
+accountant,artificial intelligence,0
+accountant,machine learning,0
+accountant,devops,0
+accountant,software tester,0
+accountant,graphic design,0
+accountant,software engineer,0
+accountant,accountant,1
+accountant,financial analyst,1
+artificial intelligence,accountant,0
+artificial intelligence,financial analyst,0
+machine learning,accountant,0
+machine learning,financial analyst,0
+finance,devops,0
+finance,software engineer,0
+finance,data entry,0
+finance,accountant,1
+finance,financial analyst,1
+data entry,accountant,0
+data entry,financial analyst,0
+agriculture,accountant,0
+agriculture,financial analyst,0
+agriculture,telesales,0
+data entry,telesales,0
+finance,telesales,0
+telesales,telesales,1
+machine learning,artificial intelligence,1
+artificial intelligence,machine learning,1
+telesales,data entry,0
+data entry,telesales,0
+telesales,telesales,1
+telesales,customer care,1
+customer care,telesales,1
+salesperson,customer care,1
+manufacturing,manufacturing,1
+human resources,human resources,1
+crafting,crafting,1
+tailor,tailor,1
+tailor,manufacturing,0
+manufacturing,crafting,1
+salesperson,crafting,0
+data entry,crafting,0
+customer care,manufacturing,0
+visual design,graphic design,1
+data analysis,data analyst,1
+data analysis,data entry,0
+data analysis,machine learning,0
+data analysis,software engineer,0
+data analysis,graphic design,0
+teaching,teacher,1
+teaching,data entry,0
+teaching,graphic design,0
+teaching,accountant,0
+teaching,financial analyst,0
+research,researcher,1
+research,scientist,1
+research,data entry,0
+research,graphic design,0
+research,software engineer,0
+medical,doctor,1
+medical,nurse,1
+medical,pharmacist,1
+medical,accountant,0
+medical,data entry,0
+medical,software engineer,0
+customer service,customer care,1
+customer service,telesales,1
+customer service,data entry,0
+customer service,software engineer,0
+customer service,graphic design,0
+lawyer,legal advisor,1
+lawyer,paralegal,1
+lawyer,data entry,0
+lawyer,software engineer,0
+lawyer,graphic design,0
+construction,construction worker,1
+construction,architect,1
+construction,engineer,1
+construction,accountant,0
+construction,data entry,0
+retail,salesperson,1
+retail,customer care,1
+retail,data entry,0
+retail,graphic design,0
+retail,software engineer,0
+logistics,logistics manager,1
+logistics,transport coordinator,1
+logistics,data entry,0
+logistics,accountant,0
+logistics,software engineer,0
+marketing,marketing manager,1
+marketing,content creator,1
+marketing,graphic design,1
+marketing,data entry,0
+marketing,software engineer,0
+visual design,product designer,1
+visual design,illustrator,1
+visual design,graphic designer,1
+visual design,data entry,0
+visual design,software engineer,0
+content writing,content writer,1
+content writing,copywriter,1
+content writing,graphic design,0
+content writing,software engineer,0
+content writing,data entry,0
+data transcription,transcriptionist,1
+data transcription,data entry,1
+data transcription,software engineer,0
+data transcription,graphic design,0
+data transcription,customer care,0
+customer support,customer care,1
+customer support,telesales,1
+customer support,data entry,1
+customer support,graphic design,0
+customer support,software engineer,0
+administration,administrative assistant,1
+administration,data entry,1
+administration,customer care,1
+administration,graphic design,0
+administration,software engineer,0
+translation,translator,1
+translation,data entry,1
+translation,content writer,1
+translation,graphic design,0
+translation,software engineer,0
+virtual assistance,virtual assistant,1
+virtual assistance,data entry,1
+virtual assistance,customer care,1
+virtual assistance,graphic design,0
+virtual assistance,software engineer,0
+proofreading,proofreader,1
+proofreading,content writer,1
+proofreading,data entry,1
+proofreading,graphic design,0
+proofreading,software engineer,0
+editing,editor,1
+editing,proofreader,1
+editing,content writer,1
+editing,graphic design,0
+editing,software engineer,0
+social media,social media manager,1
+social media,content creator,1
+social media,data entry,1
+social media,graphic design,1
+social media,software engineer,0
+customer research,customer research analyst,1
+customer research,data entry,1
+customer research,customer care,1
+customer research,graphic design,0
+customer research,software engineer,0
+e-commerce,e-commerce assistant,1
+e-commerce,data entry,1
+e-commerce,customer care,1
+e-commerce,graphic design,1
+e-commerce,software engineer,0
+blogging,blogger,1
+blogging,content writer,1
+blogging,graphic design,1
+blogging,data entry,0
+blogging,software engineer,0
+online tutoring,online tutor,1
+online tutoring,teacher,1
+online tutoring,data entry,0
+online tutoring,graphic design,0
+online tutoring,software engineer,0
+digital marketing,digital marketing specialist,1
+digital marketing,content creator,1
+digital marketing,social media manager,1
+digital marketing,data entry,0
+digital marketing,software engineer,0
+illustration,illustrator,1
+illustration,graphic designer,1
+illustration,content creator,1
+illustration,data entry,0
+illustration,software engineer,0
+account management,account manager,1
+account management,data entry,1
+account management,customer care,1
+account management,graphic design,0
+account management,software engineer,0
+data entry,data entry,1
+data entry,virtual assistant,1
+data entry,customer support,1
+data entry,content moderator,1
+graphic design,graphic designer,1
+graphic design,visual content creator,1
+graphic design,illustrator,1
+software engineering,software engineer,1
+software engineering,web developer,1
+software engineering,quality assurance tester,1
+software engineering,technical writer,1
+virtual assistance,virtual assistant,1
+virtual assistance,data entry,1
+virtual assistance,customer support,1
+customer service,customer support,1
+customer service,telesales,1
+customer service,call center representative,1
+teaching,online tutor,1
+teaching,teaching assistant,1
+teaching,content creator,1
+research,research assistant,1
+research,data entry,1
+research,online research,1
+administrative,administrative assistant,1
+administrative,office assistant,1
+administrative,appointment scheduler,1
+writing,copywriter,1
+writing,content writer,1
+writing,technical writer,1
+data analysis,data analyst,1
+data analysis,research assistant,1
+data analysis,statistician,1
+marketing,digital marketer,1
+marketing,content writer,1
+marketing,SEO specialist,1
+marketing,community manager,1
+healthcare,medical coder,1
+healthcare,medical transcriptionist,1
+healthcare,telemedicine support,1
+finance,accountant,1
+finance,financial analyst,1
+finance,bookkeeper,1
+sales,sales support,1
+sales,sales assistant,1
+sales,account manager,1
+administrative,document controller,1
+administrative,clerical assistant,1
+remote work,data entry,1
+remote work,virtual assistant,1
+remote work,content moderator,1
+remote work,customer care,1
+remote work,transcriptionist,1
+manufacturing,assembly line worker,1
+manufacturing,packaging worker,1
+crafting,crafting,1
+crafting,artisanal work,1
+tailoring,tailor,1
+tailoring,clothing repair,1
+security,security guard,1
+security,remote security monitor,1
+library,library assistant,1
+library,online research assistant,1
+IT,IT support technician,1
+IT,web administrator,1
+IT,network administrator,1

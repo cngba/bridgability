@@ -1,6 +1,10 @@
 const express = require('express');
+const axios = require('axios'); // Import Axios for HTTP requests
+
 const { authenticateToken } = require('../utils/token');
 const jobDb = require('../db/jobDb');
+const userDb = require('../db/userDb');
+const { getProfile } = require('../db/profileDb');
 
 const jobRoutes = (dbClient) => {
   const router = express.Router();
@@ -42,7 +46,6 @@ const jobRoutes = (dbClient) => {
     // try {
       console.log("Finding jobs...");
       const jobs = await jobDb.getAllJob(dbClient);
-      console.log("Jobs:", jobs)
 
       // Convert cursor to array
       const jobList = await jobs.toArray();
@@ -54,7 +57,28 @@ const jobRoutes = (dbClient) => {
     // }
   });
 
+  router.post('/match', authenticateToken, async (req, res) => {
+    const userId = req.userId;
+    // const account = await userDb.getUserById(dbClient, {id: userId});
+    const user = await getProfile(dbClient, {id: userId})
+    console.log(user);
+
+    const payload = {
+      "person": {
+        "name": user.name,        // Replace with actual user data
+        "age": user.age,                 // Replace with actual user data
+        "location": user.location,    // Replace with actual user data
+        "bio": user.bio // Replace with actual user data
+      }
+    };
+
+    const response = await axios.post('http://0.0.0.0:9000/match', payload);
+
+    res.status(200).json({statusCode: 200, jobs: response.data} );
+  }); 
+
   // Route to get a specific job by ID
+  // Not really necessary, front-end just fetched everything
   router.get('/:id', async (req, res) => {
     try {
       const jobId = req.params.id;

@@ -6,9 +6,8 @@ async function getCollection(client) {
 async function addJob(client, userId, jobData) {
     // job: JSON object
 
-    // Get current logged in userId + check if type is EMPLOYER
     const job = {
-        id: userId,
+        user: userId,
         jobData
     }
 
@@ -26,7 +25,7 @@ async function getAllJob(client) {
 
 async function getJob(client, { id }) {
     const collection = await getCollection(client);
-    const result = await collection.findone({ id });
+    const result = await collection.findOne({ _id: id });
     if (!result) {
         throw new Error('Job not found');
     }

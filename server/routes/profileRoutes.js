@@ -23,23 +23,24 @@ const profileRoutes = (dbClient) => {
   
   router.put('/', authenticateToken, async (req, res) => {
     try {
-      const { name, age, location, skills } = req.body;
+      const { name, age, location, bio, type } = req.body;
   
       // Validate input
-      if (!name || !age || !location || !skills || !Array.isArray(skills)) {
+      if (!name || !age || !location || !skills || !bio || !type) {
         return res.status(400).json({ error: 'Invalid input. Please provide all required fields.' });
       }
   
-      // Use the userId from the token
+      // Use the userId from the tokesn
       const userId = req.userId;
   
       // Update the profile in the database
       const updatedProfile = await profileDb.updateProfile(dbClient, {
         id: userId,
+        type,
         name,
         age,
         location,
-        skills,
+        bio,
       });
   
       // Check if the profile was successfully updated

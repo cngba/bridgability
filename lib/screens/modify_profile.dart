@@ -12,14 +12,14 @@ class ModifyProfileScreen extends StatefulWidget {
   final String name;
   final int age;
   final String location;
-  final List<String> skills;
+  final String bio;
 
   const ModifyProfileScreen({
     super.key,
     required this.name,
     required this.age,
     required this.location,
-    required this.skills,
+    required this.bio,
   });
 
   @override
@@ -30,7 +30,7 @@ class _ModifyProfileScreenState extends State<ModifyProfileScreen> {
   late TextEditingController nameController;
   late TextEditingController ageController;
   late TextEditingController locationController;
-  late TextEditingController skillsController;
+  late TextEditingController bioController;
 
   @override
   void initState() {
@@ -38,7 +38,7 @@ class _ModifyProfileScreenState extends State<ModifyProfileScreen> {
     nameController = TextEditingController(text: widget.name);
     ageController = TextEditingController(text: widget.age.toString());
     locationController = TextEditingController(text: widget.location);
-    skillsController = TextEditingController(text: widget.skills.join(', '));
+    bioController = TextEditingController(text: widget.bio);
   }
 
   Future<void> saveProfile() async {
@@ -48,12 +48,12 @@ class _ModifyProfileScreenState extends State<ModifyProfileScreen> {
       return;
     }
 
-    final url = Uri.parse('http://192.168.1.16:3000/profile');
+    final url = Uri.parse('http://192.168.189.60:3000/profiles');
     final body = json.encode({
       'name': nameController.text,
       'age': int.parse(ageController.text),
       'location': locationController.text,
-      'skills': skillsController.text.split(',').map((s) => s.trim()).toList(),
+      'bio': bioController.text,
     });
 
     final response = await http.put(
@@ -96,8 +96,8 @@ class _ModifyProfileScreenState extends State<ModifyProfileScreen> {
               decoration: InputDecoration(labelText: 'Location'),
             ),
             TextField(
-              controller: skillsController,
-              decoration: InputDecoration(labelText: 'Skills (comma-separated)'),
+              controller: bioController,
+              decoration: InputDecoration(labelText: 'Bio'),
             ),
             SizedBox(height: 16),
             ElevatedButton(

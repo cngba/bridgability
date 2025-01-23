@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:developer' as developer;
 
 import './modify_profile.dart';
 
@@ -24,28 +23,30 @@ class ProfileScreenState extends State<ProfileScreen> {
   String name = '';
   int age = 0;
   String location = '';
-  List<String> skills = [];
+  String bio = '';
   bool isLoading = true;
 
   // Fetch profile data from the server
   Future<void> fetchProfileData() async {
-    final token = await getToken();
+  final token = await getToken();
 
-    if (token == null) {
-      return; // Optionally, handle the case when there's no token
-    }
+  if (token == null) {
+    return; // Optionally, handle the case when there's no token
+  }
 
-    final url = Uri.parse('http://192.168.1.16:3000/profiles');
+  final url = Uri.parse('http://192.168.189.60:3000/profiles');
+
+  try {
+    final startTime = DateTime.now();
     final response = await http.get(
       url,
       headers: {
         'Authorization': 'Bearer $token',
       },
     );
-
-    print('Response body: ${response.body}');
-    print('Response status: ${response.statusCode}');
-    print('Response headers: ${response.headers}');
+    final endTime = DateTime.now();
+    final duration = endTime.difference(startTime);
+    print('Request took: ${duration.inMilliseconds}ms');
     
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
@@ -53,13 +54,21 @@ class ProfileScreenState extends State<ProfileScreen> {
         name = data['profile']['name'];
         age = data['profile']['age'];
         location = data['profile']['location'];
-        skills = List<String>.from(data['profile']['skills']);
+        bio = data['profile']['bio'];
         isLoading = false;
       });
     } else {
       throw Exception('Failed to load profile data');
     }
+  } catch (e) {
+    print('Error: $e');
+    setState(() {
+      isLoading = false;
+    });
+    // Handle the error (show a message to the user or retry the request)
   }
+}
+
 
   @override
   void initState() {
@@ -103,22 +112,11 @@ class ProfileScreenState extends State<ProfileScreen> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Skills:',
+                    'Bio: $bio',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  SizedBox(height: 8),
-                  Wrap(
-                    spacing: 8.0,
-                    runSpacing: 4.0,
-                    children: skills
-                        .map((skill) => Chip(
-                              label: Text(skill),
-                              backgroundColor: Colors.blue.shade100,
-                            ))
-                        .toList(),
                   ),
                   SizedBox(height: 32),
                   Center(
@@ -132,7 +130,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                               name: name,
                               age: age,
                               location: location,
-                              skills: skills,
+                              bio: bio,
                             ),
                           ),
                         );

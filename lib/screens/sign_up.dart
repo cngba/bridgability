@@ -34,7 +34,7 @@ class SignUpScreen extends StatelessWidget {
       // Send POST request to the backend
       try {
         final response = await http.post(
-          Uri.parse('http://192.168.1.16:3000/users/add'),  // Update this with the correct API URL
+          Uri.parse('http://192.168.189.60:3000/users/add'),  // Update this with the correct API URL
           headers: {'Content-Type': 'application/json'},
           body: json.encode({
             'email': email,
